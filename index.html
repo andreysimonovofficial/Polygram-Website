@@ -4,91 +4,320 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Polygram | polygram.id</title>
-  <meta name="description" content="Polygram — современная платформа для общения и контента.">
+  <meta name="description" content="Система поиска максимального рычага — интерактивный холст для редактора графов, майнд-маппинг, автоматизация и построение цифровой агентной корпорации.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; background: #0a0a0b; color: #f5f5f4; line-height: 1.6; }
-    .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
-    header { position: sticky; top: 0; z-index: 50; background: rgba(10,10,11,0.8); backdrop-filter: blur(8px); border-bottom: 1px solid #27272a; }
+    body { font-family: 'Inter', sans-serif; background: #050507; color: #f8fafc; line-height: 1.6; overflow-x: hidden; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    header { position: sticky; top: 0; z-index: 100; background: rgba(5,5,7,0.6); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.06); }
     nav { display: flex; justify-content: space-between; align-items: center; height: 64px; }
-    .logo { font-weight: 700; font-size: 1.25rem; letter-spacing: -0.025em; color: #f5f5f4; text-decoration: none; }
-    .logo span { color: #6366f1; }
-    .nav-links { display: flex; gap: 24px; list-style: none; }
-    .nav-links a { color: #a1a1aa; text-decoration: none; font-size: 0.95rem; transition: color 0.2s; }
-    .nav-links a:hover { color: #f5f5f4; }
-    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 10px 20px; border-radius: 8px; font-weight: 500; font-size: 0.95rem; text-decoration: none; transition: all 0.2s; border: 1px solid transparent; cursor: pointer; }
-    .btn-primary { background: #6366f1; color: #ffffff; }
-    .btn-primary:hover { background: #4f46e5; }
-    .btn-ghost { background: transparent; color: #a1a1aa; border-color: #27272a; }
-    .btn-ghost:hover { color: #f5f5f4; border-color: #52525b; }
-    .hero { padding: 120px 0 100px; text-align: center; }
-    .hero h1 { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.04em; margin-bottom: 24px; }
-    .hero h1 .gradient { background: linear-gradient(135deg, #818cf8, #c4b5fd); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .hero p { font-size: 1.25rem; color: #a1a1aa; max-width: 600px; margin: 0 auto 36px; line-height: 1.7; }
-    .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-    .features { padding: 100px 0; background: #0f0f11; border-top: 1px solid #1f1f23; border-bottom: 1px solid #1f1f23; }
-    .section-title { font-size: 1.875rem; font-weight: 700; text-align: center; margin-bottom: 60px; letter-spacing: -0.025em; }
-    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
-    .feature-card { padding: 32px; background: #18181b; border: 1px solid #27272a; border-radius: 12px; transition: transform 0.2s, border-color 0.2s; }
-    .feature-card:hover { transform: translateY(-4px); border-color: #6366f1; }
-    .feature-icon { width: 40px; height: 40px; background: #2d1b69; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
-    .feature-card h3 { font-size: 1.125rem; font-weight: 600; margin-bottom: 8px; color: #f5f5f4; }
-    .feature-card p { color: #a1a1aa; font-size: 0.95rem; }
-    .footer { padding: 64px 0 40px; border-top: 1px solid #1f1f23; text-align: center; color: #a1a1aa; font-size: 0.9rem; }
-    .footer .domain { font-weight: 600; color: #6366f1; letter-spacing: -0.025em; }
-    @media (max-width: 640px) { .nav-links { display: none; } .hero-actions { flex-direction: column; align-items: center; } .btn { width: 100%; max-width: 260px; } }
+    .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.25rem; letter-spacing: -0.04em; color: #ffffff; text-decoration: none; }
+    .logo .mark { width: 24px; height: 24px; border-radius: 6px; background: linear-gradient(135deg, #818cf8, #c4b5fd); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.75rem; color: #050507; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { color: #94a3b8; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: #ffffff; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 24px; border-radius: 10px; font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: all 0.2s; border: 1px solid transparent; cursor: pointer; }
+    .btn-primary { background: linear-gradient(135deg, #6366f1, #a855f7); color: #ffffff; box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 15px 35px -5px rgba(99, 102, 241, 0.5); }
+    .btn-ghost { background: transparent; color: #cbd5e1; border-color: rgba(255,255,255,0.1); }
+    .btn-ghost:hover { color: #ffffff; border-color: rgba(255,255,255,0.2); }
+
+    .hero { padding: 140px 0 120px; text-align: center; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.08) 0%, transparent 60%); pointer-events: none; }
+    .hero .badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 20px; background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.2); color: #818cf8; font-size: 0.8rem; font-weight: 600; margin-bottom: 24px; }
+    .hero h1 { font-size: clamp(3rem, 8vw, 5.5rem); font-weight: 900; line-height: 1.05; letter-spacing: -0.04em; margin-bottom: 24px; color: #ffffff; }
+    .hero h1 .accent { background: linear-gradient(135deg, #818cf8, #c4b5fd); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero p { font-size: clamp(1.1rem, 2vw, 1.5rem); color: #94a3b8; max-width: 700px; margin: 0 auto 40px; line-height: 1.7; }
+    .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 60px; }
+    .archimedes { font-style: italic; color: #64748b; font-size: 1.1rem; max-width: 700px; margin: 0 auto; }
+
+    .section { padding: 120px 0; }
+    .section-header { text-align: center; margin-bottom: 80px; }
+    .section-header .kicker { color: #818cf8; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; display: block; }
+    .section-header h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 20px; color: #ffffff; }
+    .section-header p { color: #94a3b8; font-size: 1.1rem; max-width: 650px; margin: 0 auto; }
+
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; }
+    .card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 40px 32px; transition: all 0.3s; }
+    .card:hover { border-color: rgba(99, 102, 241, 0.3); transform: translateY(-4px); background: rgba(255,255,255,0.04); }
+    .card-icon { width: 44px; height: 44px; border-radius: 12px; background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(168,85,247,0.15)); border: 1px solid rgba(99,102,241,0.2); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; font-size: 1.5rem; }
+    .card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; color: #ffffff; }
+    .card p { color: #94a3b8; font-size: 0.95rem; line-height: 1.7; }
+
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    @media (max-width: 768px) { .two-col { grid-template-columns: 1fr; gap: 40px; } .nav-links { display: none; } }
+
+    .problem-solution { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+    .problem h4 { color: #f87171; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; }
+    .solution h4 { color: #818cf8; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; }
+    .problem h3, .solution h3 { font-size: 1.75rem; font-weight: 800; line-height: 1.2; margin-bottom: 20px; color: #ffffff; }
+    .problem p, .solution p { color: #94a3b8; margin-bottom: 16px; font-size: 1rem; line-height: 1.7; }
+
+    .extensions { background: #0a0a0f; border-top: 1px solid rgba(255,255,255,0.04); border-bottom: 1px solid rgba(255,255,255,0.04); }
+    .ext-card { position: relative; overflow: hidden; }
+    .ext-card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(99,102,241,0.03), rgba(168,85,247,0.03)); pointer-events: none; }
+
+    .references { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; align-items: center; margin-bottom: 40px; }
+    .ref-chip { padding: 8px 16px; border-radius: 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); color: #94a3b8; font-size: 0.85rem; font-weight: 500; }
+
+    .archetypes { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 40px; }
+    .arch-chip { padding: 12px 20px; border-radius: 10px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); color: #cbd5e1; font-size: 0.9rem; text-align: center; }
+
+    .footer { border-top: 1px solid rgba(255,255,255,0.06); padding: 80px 0 40px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+    @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr; gap: 32px; } }
+    .footer h5 { font-size: 0.9rem; font-weight: 700; color: #ffffff; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 0.1em; }
+    .footer a { color: #94a3b8; text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    .footer a:hover { color: #818cf8; }
+    .footer ul { list-style: none; }
+    .footer ul li { margin-bottom: 12px; }
+    .footer .domain { color: #818cf8; font-weight: 700; letter-spacing: -0.025em; }
+    .copy { margin-top: 64px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.06); color: #64748b; font-size: 0.85rem; text-align: center; }
+
+    .final-cta { text-align: center; padding: 120px 0; }
+    .final-cta h2 { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 900; line-height: 1.1; margin-bottom: 20px; letter-spacing: -0.03em; }
+    .final-cta p { color: #94a3b8; font-size: 1.25rem; max-width: 600px; margin: 0 auto 40px; }
+    .quote { font-style: italic; color: #818cf8; font-size: 2rem; margin: 40px 0; line-height: 1.3; }
+
+    .stat { font-size: 2.5rem; font-weight: 900; color: #ffffff; display: block; letter-spacing: -0.02em; }
+    .stat-label { color: #94a3b8; font-size: 0.9rem; margin-top: 4px; }
   </style>
 </head>
 <body>
-  <header>
-    <nav class="container">
-      <a href="#" class="logo">poly<span>gram</span>.id</a>
-      <ul class="nav-links">
-        <li><a href="#features">Возможности</a></li>
-        <li><a href="#contact">Контакты</a></li>
-      </ul>
-      <a href="#" class="btn btn-primary">Начать</a>
-    </nav>
-  </header>
 
-  <section class="hero">
-    <h1>Ваша платформа.<br><span class="gradient">polygram.id</span></h1>
-    <p>Современное пространство для общения, контента и сообществ. Быстро, надёжно, без лишнего.</p>
+<header>
+  <nav class="container">
+    <a href="#" class="logo">
+      <div class="mark">P</div>
+      poly<span>gram</span>.id
+    </a>
+    <ul class="nav-links">
+      <li><a href="#what">О Polygram</a></li>
+      <li><a href="#problem">Проблема и решение</a></li>
+      <li><a href="#extensions">Расширения</a></li>
+      <li><a href="#model">Бизнес-модель</a></li>
+    </ul>
+    <a href="#" class="btn btn-primary">Начать</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="badge">Версия 1.0 &#8226; polygram.id</div>
+    <h1>Созидай. Управляй.<br><span class="accent">Пожинай.</span></h1>
+    <p>Система поиска максимального рычага и подсвечивания узких мест — интерактивный холст для редактора графов с майнд-маппингом, мозговым штурмом, автоматизацией и построением цифровой агентной корпорации.</p>
     <div class="hero-actions">
-      <a href="#" class="btn btn-primary">Создать аккаунт</a>
-      <a href="#features" class="btn btn-ghost">Подробнее</a>
+      <a href="#what" class="btn btn-primary">Попробовать</a>
+      <a href="https://github.com/andreysimonovofficial/polygram" class="btn btn-ghost">GitHub</a>
     </div>
-  </section>
+    <div class="archimedes">«Дайте Мне рычаг достаточно мощный, и Я переверну Землю» — Архимед</div>
+  </div>
+</section>
 
-  <section id="features" class="features">
-    <h2 class="section-title">Возможности</h2>
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon">⚡</div>
-        <h3>Высокая скорость</h3>
-        <p>Мгновенная загрузка и отзывчивый интерфейс на любом устройстве.</p>
+<section id="what" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="kicker">Базовая суть</span>
+      <h2>Что такое Polygram</h2>
+      <p>Это ультимативный инструмент эргономичной коммуникации ИИ с человеком. Чистый CAD с коннекторами API и MCP — модульный, бесшовный, визуально эргономичный.</p>
+    </div>
+    <div class="two-col">
+      <div>
+        <h3>Для кого</h3>
+        <p>Новое поколение предпринимателей, стартаперов и руководителей проектов, которым нужна прозрачность, эффективность и нулевая фрагментация внимания. Также — широкая аудитория для бытовых целей.</p>
+        <br>
+        <h3>Ключевые принципы</h3>
+        <p>Прозрачность: бесплатный свободный доступ к базовому ванильному CAD. Ядро не меняется при добавлении расширений. Агент создаёт или обновляет расширение — и оно сразу появляется на холсте.</p>
       </div>
-      <div class="feature-card">
-        <div class="feature-icon">🔒</div>
-        <h3>Безопасность</h3>
-        <p>Защита данных и конфиденциальность пользователей на первом месте.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🌍</div>
-        <h3>Глобальный охват</h3>
-        <p>Доступно по всему миру через домен polygram.id.</p>
+      <div>
+        <div class="card">
+          <div class="card-icon">🎯</div>
+          <h3>Максимальный рычаг</h3>
+          <p>Вдумчивый выбор одного максимального рычага и нескольких вторичных на основе глубокого анализа в направлении масштабируемых модулей.</p>
+        </div>
+        <div class="card" style="margin-top:24px;">
+          <div class="card-icon">🔗</div>
+          <h3>API + MCP + CAD</h3>
+          <p>Мышь, клавиатура и MCP используют один механизм команд. Всё максимально бесшовно подключается — вход и выход.</p>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer class="footer">
-    <div class="container">
-      <p>© 2026 Polygram. Домен: <span class="domain">polygram.id</span></p>
+<section id="problem" class="section" style="background:#08080a;">
+  <div class="container">
+    <div class="section-header">
+      <span class="kicker">Проблема &#8226; Решение</span>
+      <h2>Почему нужен Polygram</h2>
     </div>
-  </footer>
+    <div class="problem-solution">
+      <div class="problem">
+        <h4>The Problem</h4>
+        <h3>Статичность и фрагментация</h3>
+        <p>Обычные диаграммы остаются «просто рисунками», не связанными с реальными процессами и исполнителями.</p>
+        <p>Командам приходится переключаться между 5–10 разными сервисами (Miro, Notion, Jira, No-code платформы).</p>
+        <p>Классические дашборды и ERP копят усталость, а не дают ясность.</p>
+      </div>
+      <div class="solution">
+        <h4>The Solution</h4>
+        <h3>Живая визуальная карта</h3>
+        <p>Пользователь собирает понятную визуальную карту, которая сразу становится реальной живой системой с агентами и автоматизациями.</p>
+        <p>Результат — снижение фрагментации, увеличение КПД, полная автоматизация.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="extensions" class="section extensions">
+  <div class="container">
+    <div class="section-header">
+      <span class="kicker">Базовые расширения ядра</span>
+      <h2>Core Extensions</h2>
+      <p>Расширения хранятся в отдельных локальных репозиториях и никогда не влияют на чистый код ванильного CAD.</p>
+    </div>
+    <div class="grid-3">
+      <div class="ext-card card">
+        <div class="card-icon">📬</div>
+        <h3>«Секретарь»</h3>
+        <p>Автономный агент коммуникации, который дожимает лиды, назначает встречи и работает бесперебойно через Telegram и почту даже при закрытом браузере. Все сообщения сохраняются в локальную базу.</p>
+      </div>
+      <div class="ext-card card">
+        <div class="card-icon">💰</div>
+        <h3>«Финансы»</h3>
+        <p>Прямая интеграция с эквайрингом и банками для вывода реальных показателей финансовых потоков прямо на блоки холста и отображения транзакций.</p>
+      </div>
+      <div class="ext-card card">
+        <div class="card-icon">📄</div>
+        <h3>«Контракты»</h3>
+        <p>Долгосрочные задачи с проверками и автоматическими напоминаниями через Секретаря. Формат CONTRACT.md.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="model" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="kicker">Business Model</span>
+      <h2>Как Polygram зарабатывает</h2>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-icon">🖥️</div>
+        <h3>ИИ серверы</h3>
+        <p>Продажа, аренда и обслуживание ИИ серверов.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📦</div>
+        <h3>ИИ корпорация «из коробки»</h3>
+        <p>Продажа готовой ИИ корпорации и персональная техническая поддержка с экспертизой.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">☁️</div>
+        <h3>Облачная версия Премиум</h3>
+        <p>Трансляция интерактивной картинки в режиме реального времени и облачные мощности.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🧩</div>
+        <h3>Расширения и спонсорство</h3>
+        <p>Расширения в приложении, корпоративное спонсорство от гигантов индустрии и роялти за коммерческий форк.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">💸</div>
+        <h3>Инвестиционная платформа</h3>
+        <p>Прямые инвестиции в перспективные ИИ корпорации пользователей внутри Polygram.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🪙</div>
+        <h3>Валюта Polys</h3>
+        <p>Внутриплатформенная валюта — ИИ кредиты для покупки товаров у партнёров, оплаты премиум функций и комиссия за переводы.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:#070709;">
+  <div class="container">
+    <div class="section-header" style="margin-bottom:60px;">
+      <span class="kicker">Философия и эстетика</span>
+      <h2>Архетипы и референсы</h2>
+    </div>
+    <div class="archetypes">
+      <div class="arch-chip"><strong>Первичные:</strong> Правитель (Ruler) &#8226; Волшебник (Magician) &#8226; Творец (Creator)</div>
+      <div class="arch-chip"><strong>Вторичные:</strong> Опекун (Caregiver) &#8226; Мудрец (Sage) &#8226; Любовник (Lover)</div>
+      <div class="arch-chip"><strong>Третичные:</strong> Воин (Warrior) &#8226; Искатель &#8226; Революционер (Revolutionary)</div>
+      <div class="arch-chip"><strong>Четвертичные:</strong> Реалист (Realist) &#8226; Идеалист (Idealist) &#8226; Шут (Jester)</div>
+    </div>
+    <div class="references">
+      <span class="ref-chip">Деньги (Их энергетика)</span>
+      <span class="ref-chip">Apple (Лёгкая когнитивная нагрузка)</span>
+      <span class="ref-chip">Grok Imagine (Выполнение задуманного)</span>
+      <span class="ref-chip">Tesla (Космополитизм, эстетика, визионерство)</span>
+      <span class="ref-chip">Louis Vuitton (Строгость и сексуальность)</span>
+      <span class="ref-chip">SpaceX (Колонизация вселенной)</span>
+      <span class="ref-chip">iQos (Их сервис)</span>
+      <span class="ref-chip">Google (Бесшовность интеграций)</span>
+      <span class="ref-chip">Instagram (Простота)</span>
+      <span class="ref-chip">Telegram (Свобода)</span>
+    </div>
+    <p style="text-align:center; color:#64748b; font-style:italic;">Итоговое ощущение после использования Polygram: эйфория и спокойствие! Ощущение понятного пути, видение образов и странное желание продолжать благодаря лёгкой когнитивной нагрузке.</p>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="container">
+    <div class="quote">«Дайте Мне рычаг достаточно мощный, и Я переверну Землю» — Архимед</div>
+    <h2>Polygram. Просто попробуй это…</h2>
+    <p>Универсальная система для автоматизации всего. Успех как кубик рубика — посмотри, с какой скоростью собирает его робот. Ускорься. Твой совет директоров, твой совет экспертов. Тут Твоему Агенту уютно.</p>
+    <div class="hero-actions">
+      <a href="#what" class="btn btn-primary">Начать создавать</a>
+      <a href="https://github.com/andreysimonovofficial/polygram" class="btn btn-ghost">Открыть репозиторий</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h5>Polygram</h5>
+        <p style="color:#94a3b8; font-size:0.9rem; margin-bottom:20px;">Система поиска максимального рычага. Интерактивный холст для редактора графов, майнд-маппинг, автоматизация и построение цифровой агентной корпорации.</p>
+        <div style="font-size:0.9rem; color:#94a3b8;">Домен: <span class="domain">polygram.id</span></div>
+      </div>
+      <div>
+        <h5>Разделы</h5>
+        <ul>
+          <li><a href="#what">О Polygram</a></li>
+          <li><a href="#problem">Проблема и решение</a></li>
+          <li><a href="#extensions">Расширения</a></li>
+          <li><a href="#model">Бизнес-модель</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Ресурсы</h5>
+        <ul>
+          <li><a href="https://github.com/andreysimonovofficial/polygram" target="_blank" rel="noopener">GitHub репозиторий</a></li>
+          <li><a href="#" style="color:#94a3b8;">Документация (Wiki)</a></li>
+          <li><a href="#" style="color:#94a3b8;">Прямые эфиры</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Контакты</h5>
+        <ul>
+          <li><a href="#" style="color:#94a3b8;">Поддержка и экспертиза</a></li>
+          <li><a href="#" style="color:#94a3b8;">Инвестиции</a></li>
+          <li><a href="#" style="color:#94a3b8;">Спонсорство</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">© 2026 Polygram. «Созидай. Управляй. Пожинай.» Домен: <span class="domain">polygram.id</span></div>
+  </div>
+</footer>
+
 </body>
 </html>

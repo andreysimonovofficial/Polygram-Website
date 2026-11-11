@@ -1,9 +1,0 @@
-{
-  "$schema": "https://schemas.wrangler.dev/pages/v3",
-  "name": "polygram",
-  "productionBranch": "main",
-  "compatibility_date": "2026-11-11",
-  "observability": {
-    "enabled": true
-  }
-}
