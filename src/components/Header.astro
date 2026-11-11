@@ -1,0 +1,41 @@
+﻿---
+import nav from '../content/sections/nav.json';
+import LucideIcon from './LucideIcon.astro';
+---
+<header>
+  <div class="container nav-wrap">
+    <a href="#" class="logo" aria-label="Polygram главная">
+      <div class="logo-mark">P</div>
+      poly<span style="color:#ffffff;">gram</span>.id
+    </a>
+
+    <nav>
+      <ul class="nav-links">
+        {nav.items.map((item) => (
+          <li><a href={item.href}>{item.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="nav-cta">
+      <button class="nav-hamburger" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav-drawer">
+        <LucideIcon name="menu" size="22" color="var(--text-secondary)" />
+      </button>
+      <a href={nav.ctaHref} class="btn-invest">{nav.ctaLabel}</a>
+    </div>
+  </div>
+</header>
+
+<nav class="nav-drawer" id="nav-drawer" aria-label="Мобильное меню">
+  <button class="nav-hamburger" aria-label="Закрыть меню" aria-expanded="true" aria-controls="nav-drawer" style="position:absolute;top:12px;right:12px;z-index:10;">
+    <LucideIcon name="x" size="22" color="var(--text-secondary)" />
+  </button>
+  <ul class="nav-links">
+    {nav.items.map((item) => (
+      <li><a href={item.href}>{item.label}</a></li>
+    ))}
+  </ul>
+  <a href={nav.ctaHref} class="btn-invest">{nav.ctaLabel}</a>
+</nav>
+
+<div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>

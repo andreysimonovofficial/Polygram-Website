@@ -1,0 +1,67 @@
+﻿---
+export interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+}
+const {
+  title = 'Polygram — цифровая агентная корпорация',
+  description = 'Интерактивный холст для редактора графов, майнд-маппинг, автоматизация и построение цифровой агентной корпорации.',
+  ogImage = '/images/og-image.webp',
+} = Astro.props;
+const canonical = `https://polygram.id${Astro.url.pathname}`;
+---
+<!DOCTYPE html>
+<html lang="ru" class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title} | polygram.id</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#000000" />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:site_name" content="Polygram" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Polygram" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@polygram" />
+    <meta name="twitter:creator" content="@polygram" />
+    <meta name="twitter:image" content={ogImage} />
+    <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="preload" as="font" href="/fonts/sf-pro-variable.woff2" type="font/woff2" />
+    <link rel="stylesheet" href="/fonts/sf-pro.css" />
+    <link rel="stylesheet" href="/styles/global.css" />
+    <style is:global>
+      :root{--anchor-offset:80px}
+      .skip-to-content{position:absolute;top:-10000px;left:0;background:var(--accent);color:#000;padding:8px 16px;z-index:10000;border-radius:var(--radius-sm);text-decoration:none;font-weight:600;font-size:0.9rem}
+      .skip-to-content:focus{top:16px;left:16px}
+      header{position:sticky;top:0;z-index:1000;height:56px;background:rgba(0,0,0,0.8);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.08)}
+      .hero{padding:120px 0 140px;text-align:center}
+      .hero h1{font-size:clamp(3rem,8vw,5rem);font-weight:600;line-height:1.02;letter-spacing:-0.03em;color:var(--text);margin-bottom:24px}
+      .btn-invest{display:inline-flex;align-items:center;justify-content:center;padding:0 32px;height:52px;border-radius:16px;background:linear-gradient(to bottom,#1d1d1d,#0a0a0a);border:1px solid var(--border);color:var(--text);font-weight:500;font-size:0.95rem;text-decoration:none;transition:0.2s var(--ease)}
+    </style>
+    <script>
+      document.documentElement.classList.remove('no-js');
+      document.documentElement.classList.add('js');
+    </script>
+  </head>
+  <body>
+    <main id="main">
+      <slot />
+    </main>
+    <script defer src="/scripts/scroll.js"></script>
+    <script defer src="/scripts/nav.js"></script>
+    <script defer src="/scripts/form.js"></script>
+  </body>
+</html>

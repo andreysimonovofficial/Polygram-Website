@@ -1,0 +1,15 @@
+﻿{
+  "items": [
+    {"label": "О Polygram", "href": "#hero"},
+    {"label": "Проблема и решение", "href": "#problem"},
+    {"label": "Продукт", "href": "#product"},
+    {"label": "Бизнес-модель", "href": "#model"},
+    {"label": "Тракция", "href": "#traction"},
+    {"label": "Преимущество", "href": "#advantage"},
+    {"label": "Команда", "href": "#team"},
+    {"label": "Инвесторам", "href": "#investors"},
+    {"label": "FAQ", "href": "#faq"}
+  ],
+  "ctaLabel": "Получить pitch-deck",
+  "ctaHref": "#investors"
+}

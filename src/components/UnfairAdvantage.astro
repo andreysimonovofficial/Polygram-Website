@@ -1,0 +1,21 @@
+﻿---
+import advantage from '../content/sections/advantage.json';
+import LucideIcon from './LucideIcon.astro';
+const icons = ['cpu', 'code-2', 'layers'];
+---
+<section id="advantage" class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="text-h2">{advantage.title}</h2>
+      <p>{advantage.description}</p>
+    </div>
+    <div class="advantage-principles">
+      {advantage.principles.map((p, i) => (
+        <div class="principle card">
+          <div class="icon-box"><LucideIcon name={icons[i]} size="24" color="var(--accent)" /></div>
+          <p class="text-body">{p}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

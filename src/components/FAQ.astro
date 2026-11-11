@@ -1,0 +1,24 @@
+﻿---
+import faq from '../content/sections/faq.json';
+---
+<section id="faq" class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="text-eyebrow">{faq.eyebrow}</span>
+      <h2 class="text-h2">{faq.title}</h2>
+    </div>
+    <div class="faq-grid">
+      {faq.items.map((item, i) => (
+        <div class="faq-item" id={`faq-${i}`}>
+          <button class="faq-question" aria-expanded="false" aria-controls={`faq-answer-${i}`} id={`faq-q-${i}`}>
+            <span>{item.q}</span>
+            <span class="toggle">+</span>
+          </button>
+          <div class="faq-answer" id={`faq-answer-${i}`}>
+            {item.a}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

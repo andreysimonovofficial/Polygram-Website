@@ -1,0 +1,35 @@
+﻿---
+import product from '../content/sections/product.json';
+import LucideIcon from './LucideIcon.astro';
+---
+<section id="product" class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="text-eyebrow">{product.eyebrow}</span>
+      <h2 class="text-h2">{product.title}</h2>
+      <p>{product.description}</p>
+    </div>
+    <div class="grid-2">
+      <div class="product-video">
+        <video class="demo-video" controls preload="metadata" poster={product.videoPoster} aria-label={product.videoAlt}>
+          <source src={product.videoSrc} type="video/webm" />
+          Ваш браузер не поддерживает видео.
+        </video>
+      </div>
+      <div class="product-copy">
+        {product.points.map((point) => (
+          <div class="product-point">
+            <div class="icon-box"><LucideIcon name={point.icon} size="20" color="var(--text-secondary)" /></div>
+            <div>
+              <h4 class="text-h3">{point.heading}</h4>
+              <p class="text-body">{point.body}</p>
+            </div>
+          </div>
+        ))}
+        <a href={product.ctaHref} class="btn-demo" style="margin-top:16px; display:inline-block;">
+          <LucideIcon name="play" size="16" color="currentColor" /> {product.ctaText}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,25 @@
+﻿---
+import problem from '../content/sections/problem.json';
+import solution from '../content/sections/solution.json';
+---
+<section id="problem" class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="text-eyebrow">{problem.eyebrow}</span>
+      <h2 class="text-h2">{problem.title}</h2>
+      <p>Статичные диаграммы и фрагментация софта замедляют команды. Polygram превращает визуальную карту в живую систему.</p>
+    </div>
+    <div class="vs-grid">
+      <div class="vs-half problem">
+        <span class="vs-eyebrow">{problem.eyebrow}</span>
+        <h3 class="text-h3">Статичность и фрагментация</h3>
+        {problem.items.map((item) => <p class="text-body">{item}</p>)}
+      </div>
+      <div class="vs-half solution">
+        <span class="vs-eyebrow">{solution.eyebrow}</span>
+        <h3 class="text-h3">{solution.title}</h3>
+        {solution.items.map((item) => <p class="text-body">{item}</p>)}
+      </div>
+    </div>
+  </div>
+</section>

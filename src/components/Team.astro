@@ -1,0 +1,23 @@
+﻿---
+import team from '../content/sections/team.json';
+---
+<section id="team" class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="text-eyebrow">{team.eyebrow}</span>
+      <h2 class="text-h2">{team.title}</h2>
+      <p>{team.description}</p>
+    </div>
+    <div class="team-grid">
+      {team.members.map((m) => (
+        <div class="team-card card">
+          <div class="avatar-placeholder" aria-label="Аватар {m.name}">{m.initials}</div>
+          <h3 class="text-h3">{m.name}</h3>
+          <span class="role">{m.role}</span>
+          <p class="text-body">{m.bio}</p>
+        </div>
+      ))}
+    </div>
+    <p class="team-quote">{team.founderQuote}</p>
+  </div>
+</section>

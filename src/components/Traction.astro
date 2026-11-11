@@ -1,0 +1,28 @@
+﻿---
+import traction from '../content/sections/traction.json';
+---
+<section id="traction" class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="text-eyebrow">{traction.eyebrow}</span>
+      <h2 class="text-h2">{traction.title}</h2>
+      <p>{traction.description}</p>
+    </div>
+    <div class="metric-grid">
+      {traction.metrics.map((m) => (
+        <div class="metric-card">
+          <span class="value text-metric">{m.value}</span>
+          <span class="caption">{m.caption}</span>
+        </div>
+      ))}
+    </div>
+    <div class="case-grid">
+      {traction.cases.map((c) => (
+        <div class="case-card card">
+          <h4 class="text-h3">{c.title}</h4>
+          <span class="result">{c.result}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

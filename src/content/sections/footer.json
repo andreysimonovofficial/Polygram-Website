@@ -1,0 +1,11 @@
+﻿{
+  "title": "Polygram",
+  "description": "Система поиска максимального рычага. Интерактивный холст для редактора графов, майнд-маппинг, автоматизация и построение цифровой агентной корпорации.",
+  "domain": "polygram.id",
+  "columns": [
+    {"title": "Разделы", "links": [{"label":"О Polygram","href":"#hero"},{"label":"Проблема и решение","href":"#problem"},{"label":"Продукт","href":"#product"},{"label":"Бизнес-модель","href":"#model"}]},
+    {"title": "Ресурсы", "links": [{"label":"GitHub","href":"https://github.com/andreysimonovofficial/polygram","external":true},{"label":"Документация","href":"#"},{"label":"Прямые эфиры","href":"#"}]},
+    {"title": "Контакты", "links": [{"label":"Поддержка","href":"mailto:support@polygram.id"},{"label":"Инвестиции","href":"mailto:investors@polygram.id"},{"label":"Спонсорство","href":"#"}]}
+  ],
+  "copyright": "\u00a9 2026 Polygram. \u00abСозидай. Управляй. Пожинай.\u00bb Домен: polygram.id"
+}

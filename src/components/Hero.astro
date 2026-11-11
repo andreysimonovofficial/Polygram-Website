@@ -1,0 +1,23 @@
+﻿---
+import hero from '../content/sections/hero.json';
+import LucideIcon from './LucideIcon.astro';
+---
+<section id="hero" class="section hero">
+  <div class="container">
+    <span class="hero-eyebrow">{hero.eyebrow}</span>
+    <h1 class="text-h1">{hero.title} <span class="accent">{hero.titleAccent}</span></h1>
+    <div class="hero-geo">{hero.geoLine}</div>
+    <div class="hero-trust" aria-label="ГEO/SEO строка">
+      <LucideIcon name="chevron-right" size="14" color="var(--text-tertiary)" /> {hero.trustBadge}
+    </div>
+    <p>{hero.subheadline}</p>
+    <div class="hero-actions">
+      <a href={hero.primaryHref} class="btn-invest">
+        <LucideIcon name="arrow-right" size="16" color="#000000" /> {hero.primaryText}
+      </a>
+      <a href={hero.secondaryHref} class="btn-demo">
+        <LucideIcon name="play" size="16" color="currentColor" /> {hero.secondaryText}
+      </a>
+    </div>
+  </div>
+</section>

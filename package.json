@@ -1,0 +1,26 @@
+{
+  "name": "polygram-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Polygram investor landing page � Astro + Cloudflare Pages + Workers",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "lint": "eslint --ext .astro,.js src/",
+    "typecheck": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/cloudflare": "^10.0.0",
+    "astro": "^4.15.0",
+    "lucide": "0.408.0",
+    "lucide-static": "0.408.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.12",
+    "eslint": "^8.57.0",
+    "prettier": "^3.3.0",
+    "prettier-plugin-astro": "^1.1.2",
+    "typescript": "^5.9.3"
+  }
+}

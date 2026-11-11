@@ -1,0 +1,47 @@
+---
+const ICONS: Record<string, any> = {
+  'arrow-right': (await import('lucide-static')).ArrowRight,
+  'external-link': (await import('lucide-static')).ExternalLink,
+  menu: (await import('lucide-static')).Menu,
+  x: (await import('lucide-static')).X,
+  search: (await import('lucide-static')).Search,
+  layout: (await import('lucide-static')).Layout,
+  code: (await import('lucide-static')).Code,
+  layers: (await import('lucide-static')).Layers,
+  cpu: (await import('lucide-static')).Cpu,
+  'code-2': (await import('lucide-static')).Code2,
+  cloud: (await import('lucide-static')).Cloud,
+  'share-2': (await import('lucide-static')).Share2,
+  'dollar-sign': (await import('lucide-static')).DollarSign,
+  link: (await import('lucide-static')).Link,
+  server: (await import('lucide-static')).Server,
+  'building-2': (await import('lucide-static')).Building2,
+  plus: (await import('lucide-static')).Plus,
+  minus: (await import('lucide-static')).Minus,
+  'chevron-right': (await import('lucide-static')).ChevronRight,
+  mail: (await import('lucide-static')).Mail,
+  send: (await import('lucide-static')).Send,
+  'arrow-up-right': (await import('lucide-static')).ArrowUpRight,
+  play: (await import('lucide-static')).Play,
+  monitor: (await import('lucide-static')).Monitor,
+  users: (await import('lucide-static')).Users,
+  briefcase: (await import('lucide-static')).Briefcase,
+  link2: (await import('lucide-static')).Link,
+};
+
+export interface Props {
+  name: string;
+  size?: number | string;
+  color?: string;
+  class?: string;
+}
+
+const { name, size = 20, color, class: className } = Astro.props;
+const Icon = ICONS[name];
+---
+
+{Icon ? (
+  <Icon size={size} color={color} class={className} aria-hidden="true" />
+) : (
+  <span class={className} aria-hidden="true">{name}</span>
+)}

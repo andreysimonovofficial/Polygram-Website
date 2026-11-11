@@ -1,0 +1,25 @@
+﻿{
+  "eyebrow": "Инвестиции в Polygram",
+  "title": "Инвестиции в Polygram",
+  "subtitle": "Раунд А \u2022 стадия Post-MVP \u2022 целевой размер $[размер раунда]",
+  "ctaText": "Получить pitch-deck",
+  "ctaHref": "#investors",
+  "stats": [
+    {"label": "Размер раунда", "value": "$[размер раунда]"},
+    {"label": "Стадия", "value": "Post-MVP"},
+    {"label": "Ожидаемая доходность (IRR)", "value": "[IRR]"}
+  ],
+  "tractionNote": "Ключевые метрики \u2014 см. секцию Тракция.",
+  "teamNote": "Команда \u2014 см. секцию Команда.",
+  "contactEmail": "investors@polygram.id",
+  "pitchDeckHref": "/pitch-deck.pdf",
+  "formHeading": "Отправить заявку инвестора",
+  "formNameLabel": "Имя и фамилия",
+  "formNamePlaceholder": "Иван Иванов",
+  "formEmailLabel": "Рабочий email",
+  "formEmailPlaceholder": "и@example.com",
+  "formAmountLabel": "Сумма инвестиции ($)",
+  "formAmountPlaceholder": "100 000",
+  "formSubmit": "Отправить заявку",
+  "formSuccess": "Заявка отправлена. Мы свяжемся с вами в течение 24 часов."
+}

@@ -1,0 +1,32 @@
+﻿---
+import footer from '../content/sections/footer.json';
+import LucideIcon from './LucideIcon.astro';
+---
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h5>{footer.title}</h5>
+        <p style="color:var(--text-secondary); font-size:0.95rem; margin-bottom:20px;">{footer.description}</p>
+        <span class="domain">{footer.domain}</span>
+      </div>
+      {footer.columns.map((col) => (
+        <div>
+          <h5>{col.title}</h5>
+          <ul>
+            {col.links.map((l) => (
+              <li>
+                {l.external ? (
+                  <a href={l.href} target="_blank" rel="noopener noreferrer">{l.label} <LucideIcon name="external-link" size="14" color="currentColor" /></a>
+                ) : (
+                  <a href={l.href}>{l.label}</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+    <div class="copyright">{footer.copyright}</div>
+  </div>
+</footer>
