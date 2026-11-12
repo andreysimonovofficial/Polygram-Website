@@ -1,4 +1,4 @@
-﻿---
+---
 export interface Props {
   title?: string;
   description?: string;
@@ -9,6 +9,7 @@ const {
   description = 'Интерактивный холст для редактора графов, майнд-маппинг, автоматизация и построение цифровой агентной корпорации.',
   ogImage = '/images/og-image.webp',
 } = Astro.props;
+import '../styles/global.css';
 const canonical = `https://polygram.id${Astro.url.pathname}`;
 ---
 <!DOCTYPE html>
@@ -41,7 +42,6 @@ const canonical = `https://polygram.id${Astro.url.pathname}`;
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="preload" as="font" href="/fonts/sf-pro-variable.woff2" type="font/woff2" />
     <link rel="stylesheet" href="/fonts/sf-pro.css" />
-    <link rel="stylesheet" href="/styles/global.css" />
     <style is:global>
       :root{--anchor-offset:80px}
       .skip-to-content{position:absolute;top:-10000px;left:0;background:var(--accent);color:#000;padding:8px 16px;z-index:10000;border-radius:var(--radius-sm);text-decoration:none;font-weight:600;font-size:0.9rem}
@@ -65,3 +65,4 @@ const canonical = `https://polygram.id${Astro.url.pathname}`;
     <script defer src="/scripts/form.js"></script>
   </body>
 </html>
+
