@@ -53,7 +53,7 @@ export const POST: APIRoute = async ({ request }) => {
   }
 
   return new Response(
-    JSON.stringify({ success: true, message: 'Заявка принята. Мы свяжемся с вами в течение 24 часов.' }),
+    JSON.stringify({ success: true, message: 'Р—Р°СЏРІРєР° РїСЂРёРЅСЏС‚Р°. РњС‹ СЃРІСЏР¶РµРјСЃСЏ СЃ РІР°РјРё РІ С‚РµС‡РµРЅРёРµ 24 С‡Р°СЃРѕРІ.' }),
     { status: 200, headers: { ...cors, 'Content-Type': 'application/json' } }
   );
 };
