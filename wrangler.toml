@@ -1,22 +1,8 @@
 name = "polygram"
 compatibility_date = "2026-11-01"
-workers_dev = false
 pages_build_output_dir = "dist"
-
-[site]
-bucket = "./dist"
-entry-point = "workers/pages"
-
-[functions]
-external_modules = ["lucide"]
 
 [env.production]
 account_id = "641b36eab520bb85caa5b19d0e7277d4"
 project_name = "polygram"
-routes = { include = "polygram.id/*" }
-
-[observability]
-enabled = true
-
-[vars]
-ENV = "production"
+vars = { ENV = "production" }
